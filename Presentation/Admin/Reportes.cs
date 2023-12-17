@@ -212,6 +212,8 @@ namespace Presentation.Admin
 
                     dataGridReportes.Columns["NombreMes"].HeaderText = "Nombre del Mes";
                     dataGridReportes.Columns["Anio"].HeaderText = "Año";
+                    dataGridReportes.Columns["CantidadReserva"].HeaderText = "Cantidad de Reservas";
+                    dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
 
                     // Opcional: Mostrar el gráfico relacionado si es necesario
                     MostrarGraficoReservasPorMes(reservasPorMes);
@@ -224,7 +226,9 @@ namespace Presentation.Admin
 
                     dataGridReportes.Columns["NombreMes"].HeaderText = "Nombre del Mes";
                     dataGridReportes.Columns["Anio"].HeaderText = "Año";
-
+                    dataGridReportes.Columns["CantidadReserva"].HeaderText = "Cantidad de Reservas";
+                    dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
+                    dataGridReportes.Columns["IdUsuario"].Visible = false;
                     // Opcional: Mostrar el gráfico relacionado si es necesario
                     MostrarGraficoReservasPorMes(reservasPorMes);
                 }
@@ -686,7 +690,7 @@ namespace Presentation.Admin
                     dataGridReportes.Columns["Dni"].HeaderText = "DNI";
                     dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
                     dataGridReportes.Columns["Telefono"].HeaderText = "Teléfono";
-                    dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8); ;
+                    dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
                     dataGridReportes.Columns["FechaNacimiento"].HeaderText = "Fecha de Nacimiento";
                     // Cambiar el tamaño de la letra del título de la columna "FechaNacimiento"
                     dataGridReportes.Columns["FechaNacimiento"].HeaderCell.Style.Font = new Font("Century Gothic", 8);

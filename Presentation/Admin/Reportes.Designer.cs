@@ -30,10 +30,10 @@ namespace Presentation.Admin
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reportes));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barraTitulo = new System.Windows.Forms.Panel();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -56,17 +56,17 @@ namespace Presentation.Admin
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pnlDetalleHabitacion = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblFechaFin = new System.Windows.Forms.Label();
+            this.lblFechaInicio = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dataGridReportes = new System.Windows.Forms.DataGridView();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnReservasPorMes = new System.Windows.Forms.Button();
             this.btnTopClientes = new System.Windows.Forms.Button();
             this.btnTopTipoHabitacionesMasReservadas = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaInicio = new System.Windows.Forms.Label();
-            this.lblFechaFin = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.barraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -335,22 +335,65 @@ namespace Presentation.Admin
             this.pnlDetalleHabitacion.Size = new System.Drawing.Size(1453, 576);
             this.pnlDetalleHabitacion.TabIndex = 56;
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblTitulo.Location = new System.Drawing.Point(17, 67);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(59, 23);
+            this.lblTitulo.TabIndex = 64;
+            this.lblTitulo.Text = "Titulo";
+            this.lblTitulo.Visible = false;
+            // 
+            // lblFechaFin
+            // 
+            this.lblFechaFin.AutoSize = true;
+            this.lblFechaFin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaFin.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblFechaFin.Location = new System.Drawing.Point(497, 44);
+            this.lblFechaFin.Name = "lblFechaFin";
+            this.lblFechaFin.Size = new System.Drawing.Size(104, 23);
+            this.lblFechaFin.TabIndex = 58;
+            this.lblFechaFin.Text = "Fecha Fin";
+            // 
+            // lblFechaInicio
+            // 
+            this.lblFechaInicio.AutoSize = true;
+            this.lblFechaInicio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaInicio.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblFechaInicio.Location = new System.Drawing.Point(496, 4);
+            this.lblFechaInicio.Name = "lblFechaInicio";
+            this.lblFechaInicio.Size = new System.Drawing.Size(131, 23);
+            this.lblFechaInicio.TabIndex = 57;
+            this.lblFechaInicio.Text = "Fecha Inicio";
+            // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(733, 98);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(695, 447);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(667, 50);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(129, 22);
+            this.dateTimePicker2.TabIndex = 63;
             // 
             // dataGridReportes
             // 
@@ -363,14 +406,14 @@ namespace Presentation.Admin
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridReportes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridReportes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridReportes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridReportes.Location = new System.Drawing.Point(21, 98);
             this.dataGridReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -381,56 +424,6 @@ namespace Presentation.Admin
             this.dataGridReportes.RowTemplate.Height = 24;
             this.dataGridReportes.Size = new System.Drawing.Size(707, 449);
             this.dataGridReportes.TabIndex = 1;
-            // 
-            // btnReservasPorMes
-            // 
-            this.btnReservasPorMes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnReservasPorMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(129)))), ((int)(((byte)(59)))));
-            this.btnReservasPorMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservasPorMes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservasPorMes.Image = ((System.Drawing.Image)(resources.GetObject("btnReservasPorMes.Image")));
-            this.btnReservasPorMes.Location = new System.Drawing.Point(1237, 129);
-            this.btnReservasPorMes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnReservasPorMes.Name = "btnReservasPorMes";
-            this.btnReservasPorMes.Size = new System.Drawing.Size(367, 154);
-            this.btnReservasPorMes.TabIndex = 54;
-            this.btnReservasPorMes.Text = "Reservas por Periodo";
-            this.btnReservasPorMes.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReservasPorMes.UseVisualStyleBackColor = false;
-            this.btnReservasPorMes.Click += new System.EventHandler(this.btnReservasPorMes_Click);
-            // 
-            // btnTopClientes
-            // 
-            this.btnTopClientes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnTopClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(183)))));
-            this.btnTopClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopClientes.ForeColor = System.Drawing.Color.Cornsilk;
-            this.btnTopClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnTopClientes.Image")));
-            this.btnTopClientes.Location = new System.Drawing.Point(821, 129);
-            this.btnTopClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnTopClientes.Name = "btnTopClientes";
-            this.btnTopClientes.Size = new System.Drawing.Size(367, 154);
-            this.btnTopClientes.TabIndex = 53;
-            this.btnTopClientes.Text = "Top Clientes";
-            this.btnTopClientes.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTopClientes.UseVisualStyleBackColor = false;
-            this.btnTopClientes.Click += new System.EventHandler(this.btnTopClientes_Click);
-            // 
-            // btnTopTipoHabitacionesMasReservadas
-            // 
-            this.btnTopTipoHabitacionesMasReservadas.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnTopTipoHabitacionesMasReservadas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopTipoHabitacionesMasReservadas.Image = ((System.Drawing.Image)(resources.GetObject("btnTopTipoHabitacionesMasReservadas.Image")));
-            this.btnTopTipoHabitacionesMasReservadas.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTopTipoHabitacionesMasReservadas.Location = new System.Drawing.Point(400, 129);
-            this.btnTopTipoHabitacionesMasReservadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnTopTipoHabitacionesMasReservadas.Name = "btnTopTipoHabitacionesMasReservadas";
-            this.btnTopTipoHabitacionesMasReservadas.Size = new System.Drawing.Size(367, 154);
-            this.btnTopTipoHabitacionesMasReservadas.TabIndex = 52;
-            this.btnTopTipoHabitacionesMasReservadas.Text = "Top Tipo Habitaciones Más reservadas";
-            this.btnTopTipoHabitacionesMasReservadas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTopTipoHabitacionesMasReservadas.UseVisualStyleBackColor = true;
-            this.btnTopTipoHabitacionesMasReservadas.Click += new System.EventHandler(this.btnTopTipoHabitacionesMasReservadas_Click);
             // 
             // btnBuscar
             // 
@@ -452,48 +445,55 @@ namespace Presentation.Admin
             this.dateTimePicker1.Size = new System.Drawing.Size(129, 22);
             this.dateTimePicker1.TabIndex = 61;
             // 
-            // dateTimePicker2
+            // btnReservasPorMes
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(667, 50);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(129, 22);
-            this.dateTimePicker2.TabIndex = 63;
+            this.btnReservasPorMes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnReservasPorMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(129)))), ((int)(((byte)(59)))));
+            this.btnReservasPorMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservasPorMes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservasPorMes.Image = ((System.Drawing.Image)(resources.GetObject("btnReservasPorMes.Image")));
+            this.btnReservasPorMes.Location = new System.Drawing.Point(1237, 129);
+            this.btnReservasPorMes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReservasPorMes.Name = "btnReservasPorMes";
+            this.btnReservasPorMes.Size = new System.Drawing.Size(367, 154);
+            this.btnReservasPorMes.TabIndex = 54;
+            this.btnReservasPorMes.Text = "Reservas por Periodo";
+            this.btnReservasPorMes.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReservasPorMes.UseVisualStyleBackColor = false;
+            this.btnReservasPorMes.Click += new System.EventHandler(this.btnReservasPorMes_Click);
             // 
-            // lblFechaInicio
+            // btnTopClientes
             // 
-            this.lblFechaInicio.AutoSize = true;
-            this.lblFechaInicio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaInicio.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblFechaInicio.Location = new System.Drawing.Point(496, 4);
-            this.lblFechaInicio.Name = "lblFechaInicio";
-            this.lblFechaInicio.Size = new System.Drawing.Size(131, 23);
-            this.lblFechaInicio.TabIndex = 57;
-            this.lblFechaInicio.Text = "Fecha Inicio";
+            this.btnTopClientes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTopClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(183)))));
+            this.btnTopClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTopClientes.ForeColor = System.Drawing.Color.Cornsilk;
+            this.btnTopClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnTopClientes.Image")));
+            this.btnTopClientes.Location = new System.Drawing.Point(821, 129);
+            this.btnTopClientes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTopClientes.Name = "btnTopClientes";
+            this.btnTopClientes.Size = new System.Drawing.Size(367, 154);
+            this.btnTopClientes.TabIndex = 53;
+            this.btnTopClientes.Text = "Top Clientes";
+            this.btnTopClientes.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTopClientes.UseVisualStyleBackColor = false;
+            this.btnTopClientes.Click += new System.EventHandler(this.btnTopClientes_Click);
             // 
-            // lblFechaFin
+            // btnTopTipoHabitacionesMasReservadas
             // 
-            this.lblFechaFin.AutoSize = true;
-            this.lblFechaFin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaFin.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblFechaFin.Location = new System.Drawing.Point(497, 44);
-            this.lblFechaFin.Name = "lblFechaFin";
-            this.lblFechaFin.Size = new System.Drawing.Size(104, 23);
-            this.lblFechaFin.TabIndex = 58;
-            this.lblFechaFin.Text = "Fecha Fin";
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblTitulo.Location = new System.Drawing.Point(17, 67);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(59, 23);
-            this.lblTitulo.TabIndex = 64;
-            this.lblTitulo.Text = "Titulo";
-            this.lblTitulo.Visible = false;
+            this.btnTopTipoHabitacionesMasReservadas.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTopTipoHabitacionesMasReservadas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTopTipoHabitacionesMasReservadas.Image = ((System.Drawing.Image)(resources.GetObject("btnTopTipoHabitacionesMasReservadas.Image")));
+            this.btnTopTipoHabitacionesMasReservadas.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTopTipoHabitacionesMasReservadas.Location = new System.Drawing.Point(400, 129);
+            this.btnTopTipoHabitacionesMasReservadas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTopTipoHabitacionesMasReservadas.Name = "btnTopTipoHabitacionesMasReservadas";
+            this.btnTopTipoHabitacionesMasReservadas.Size = new System.Drawing.Size(367, 154);
+            this.btnTopTipoHabitacionesMasReservadas.TabIndex = 52;
+            this.btnTopTipoHabitacionesMasReservadas.Text = "Top Tipo Habitaciones Más reservadas";
+            this.btnTopTipoHabitacionesMasReservadas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTopTipoHabitacionesMasReservadas.UseVisualStyleBackColor = true;
+            this.btnTopTipoHabitacionesMasReservadas.Click += new System.EventHandler(this.btnTopTipoHabitacionesMasReservadas_Click);
             // 
             // Reportes
             // 
