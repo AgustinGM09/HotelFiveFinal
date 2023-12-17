@@ -1,0 +1,16 @@
+usuario admin:
+
+email:email1@example.com
+pass:contraseña1
+
+
+usuario gerente:
+
+email:email2@example.com
+pass:contraseña2
+
+
+usuario recepcionista:
+
+email:email3@example.com
+pass:contraseña3

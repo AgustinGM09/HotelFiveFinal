@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cfaa63360f234786bdf2ec7a2fc4510d" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="HotelFiveModel.Clientes" Width="1.5" PointX="2.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelFiveModel.EstadoReserva" Width="1.5" PointX="7.125" PointY="5" />
+        <EntityTypeShape EntityType="HotelFiveModel.Habitaciones" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="HotelFiveModel.Piso" Width="1.5" PointX="0.5" PointY="4.25" />
+        <EntityTypeShape EntityType="HotelFiveModel.Reservas" Width="1.5" PointX="5.25" PointY="1.75" />
+        <EntityTypeShape EntityType="HotelFiveModel.Tipo_Usuario" Width="1.5" PointX="4.375" PointY="10.5" />
+        <EntityTypeShape EntityType="HotelFiveModel.TipoHabitacion" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="HotelFiveModel.Usuarios" Width="1.5" PointX="6.625" PointY="7.875" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdCliente" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdEstado" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdHabitacion" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdPiso" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdTipo" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdUsuario" />
+        <AssociationConnector Association="HotelFiveModel.FK_tipoUsuario" />
+        <EntityTypeShape EntityType="HotelFiveModel.Pago" Width="1.5" PointX="8.25" PointY="1.875" />
+        <AssociationConnector Association="HotelFiveModel.FK_IdReserva" />
+        <EntityTypeShape EntityType="HotelFiveModel.ClienteReserva" Width="1.5" PointX="3" PointY="4.375" />
+        <AssociationConnector Association="HotelFiveModel.FK_ClienteID" />
+        <AssociationConnector Association="HotelFiveModel.FK_HabitacionID" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
