@@ -33,7 +33,6 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.cbxPisos = new System.Windows.Forms.ComboBox();
             this.lblSeleccionPiso = new System.Windows.Forms.Label();
@@ -249,21 +248,6 @@
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblTitulo.Location = new System.Drawing.Point(956, 116);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(208, 40);
-            this.lblTitulo.TabIndex = 28;
-            this.lblTitulo.Text = "RECEPCIÓN";
             // 
             // entityCommand1
             // 
@@ -1808,7 +1792,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(208, 16);
+            this.label1.Location = new System.Drawing.Point(635, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 32);
@@ -1842,7 +1826,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblSeleccionPiso);
             this.Controls.Add(this.cbxPisos);
-            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.barraTitulo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1919,7 +1902,6 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.ComboBox cbxPisos;
         private System.Windows.Forms.Label lblSeleccionPiso;

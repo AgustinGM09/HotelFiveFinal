@@ -130,7 +130,7 @@
             this.dataGridListadoPagos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridListadoPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridListadoPagos.Location = new System.Drawing.Point(383, 176);
-            this.dataGridListadoPagos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridListadoPagos.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridListadoPagos.MultiSelect = false;
             this.dataGridListadoPagos.Name = "dataGridListadoPagos";
             this.dataGridListadoPagos.ReadOnly = true;
@@ -301,11 +301,11 @@
             // 
             // lblUsuario
             // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblUsuario.Location = new System.Drawing.Point(1297, 21);
+            this.lblUsuario.Location = new System.Drawing.Point(1074, 22);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 23);
             this.lblUsuario.TabIndex = 0;
@@ -328,7 +328,7 @@
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(1435, 293);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(129, 22);
             this.dateTimePicker1.TabIndex = 55;
@@ -347,7 +347,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(1637, 289);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(153, 28);
             this.btnBuscar.TabIndex = 57;
@@ -358,7 +358,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(1435, 176);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(232, 28);
             this.btnLimpiar.TabIndex = 58;
@@ -370,7 +370,7 @@
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(1435, 348);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(129, 22);
             this.dateTimePicker2.TabIndex = 59;
@@ -378,7 +378,7 @@
             // btnBuscarIntervalo
             // 
             this.btnBuscarIntervalo.Location = new System.Drawing.Point(1637, 345);
-            this.btnBuscarIntervalo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarIntervalo.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarIntervalo.Name = "btnBuscarIntervalo";
             this.btnBuscarIntervalo.Size = new System.Drawing.Size(153, 28);
             this.btnBuscarIntervalo.TabIndex = 60;
@@ -389,7 +389,7 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(1435, 473);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(4);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(132, 22);
             this.txtDNI.TabIndex = 61;
@@ -409,7 +409,7 @@
             // btnBuscarDNI
             // 
             this.btnBuscarDNI.Location = new System.Drawing.Point(1637, 469);
-            this.btnBuscarDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarDNI.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarDNI.Name = "btnBuscarDNI";
             this.btnBuscarDNI.Size = new System.Drawing.Size(153, 28);
             this.btnBuscarDNI.TabIndex = 63;
@@ -420,7 +420,7 @@
             // btnDetalles
             // 
             this.btnDetalles.Location = new System.Drawing.Point(383, 127);
-            this.btnDetalles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDetalles.Margin = new System.Windows.Forms.Padding(4);
             this.btnDetalles.Name = "btnDetalles";
             this.btnDetalles.Size = new System.Drawing.Size(153, 28);
             this.btnDetalles.TabIndex = 64;
@@ -452,7 +452,7 @@
             this.Controls.Add(this.barraTitulo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListadoPagos";
             this.Text = "ListadoPagos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -54,7 +54,16 @@ namespace Presentation.Admin
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Muestra un cuadro de diálogo de confirmación
+            DialogResult resultado = MessageBox.Show("¿Realmente desea cerrar la aplicación?", "Confirmar Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Comprueba la respuesta del usuario
+            if (resultado == DialogResult.Yes)
+            {
+                // Si el usuario hace clic en "Sí", cierra la aplicación
+                Application.Exit();
+            }
+            // Si el usuario hace clic en "No", no hace nada y la aplicación continúa ejecutándose
         }
 
         private void RecepcionRegistro_Load(object sender, EventArgs e)
@@ -240,6 +249,25 @@ namespace Presentation.Admin
                     // Después de la lógica, puedes mostrar un mensaje indicando que la reserva se ha registrado con éxito
                     MessageBox.Show("Reserva registrada exitosamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
+                    //this.ShowInTaskbar = false;
+
+                    // Buscar el formulario Habitaciones entre los formularios abiertos
+                    Recepcion recepcion = Application.OpenForms.OfType<Recepcion>().FirstOrDefault();
+
+                    // Si el formulario Habitaciones no está abierto, créalo y ábrelo
+                    if (recepcion == null)
+                    {
+                        recepcion = new Recepcion();
+                        recepcion.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        // Si ya está abierto, simplemente muéstralo
+                        recepcion.Show();
+                        recepcion.ShowInTaskbar = true;
+                        this.Close();
+                    }
                 }
                 else
                 {

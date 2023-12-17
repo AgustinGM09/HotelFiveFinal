@@ -126,7 +126,7 @@
             this.dataGridListadoDeReservasClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridListadoDeReservasClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridListadoDeReservasClientes.Location = new System.Drawing.Point(551, 352);
-            this.dataGridListadoDeReservasClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridListadoDeReservasClientes.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridListadoDeReservasClientes.MultiSelect = false;
             this.dataGridListadoDeReservasClientes.Name = "dataGridListadoDeReservasClientes";
             this.dataGridListadoDeReservasClientes.ReadOnly = true;
@@ -384,7 +384,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblUsuario.Location = new System.Drawing.Point(1295, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(1135, 22);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 23);
             this.lblUsuario.TabIndex = 0;
@@ -396,7 +396,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(249, 16);
+            this.label1.Location = new System.Drawing.Point(478, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(304, 32);
@@ -422,7 +422,7 @@
             this.Controls.Add(this.barraTitulo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReservadeCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReservadeCliente";

@@ -156,7 +156,7 @@ namespace Presentation.Admin
             // 
             // pnlDetalleHabitacion
             // 
-            this.pnlDetalleHabitacion.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pnlDetalleHabitacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlDetalleHabitacion.AutoSize = true;
             this.pnlDetalleHabitacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.pnlDetalleHabitacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -165,7 +165,7 @@ namespace Presentation.Admin
             this.pnlDetalleHabitacion.Controls.Add(this.lblDetalles);
             this.pnlDetalleHabitacion.Controls.Add(this.lblNumero);
             this.pnlDetalleHabitacion.Controls.Add(this.lblDetalleHabitacion);
-            this.pnlDetalleHabitacion.Location = new System.Drawing.Point(331, 116);
+            this.pnlDetalleHabitacion.Location = new System.Drawing.Point(287, 157);
             this.pnlDetalleHabitacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlDetalleHabitacion.Name = "pnlDetalleHabitacion";
             this.pnlDetalleHabitacion.Size = new System.Drawing.Size(1466, 210);
@@ -228,7 +228,7 @@ namespace Presentation.Admin
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnRegistrarCliente);
@@ -246,7 +246,7 @@ namespace Presentation.Admin
             this.panel1.Controls.Add(this.txtDni);
             this.panel1.Controls.Add(this.lblDetalleCliente);
             this.panel1.Controls.Add(this.lblDni);
-            this.panel1.Location = new System.Drawing.Point(331, 332);
+            this.panel1.Location = new System.Drawing.Point(287, 373);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(707, 470);
@@ -417,7 +417,7 @@ namespace Presentation.Admin
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnBuscarReserva);
@@ -430,7 +430,7 @@ namespace Presentation.Admin
             this.panel2.Controls.Add(this.lblFechaSalida);
             this.panel2.Controls.Add(this.lblFechaEntrada);
             this.panel2.Controls.Add(this.lblDetalleReserva);
-            this.panel2.Location = new System.Drawing.Point(1044, 332);
+            this.panel2.Location = new System.Drawing.Point(1000, 373);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(753, 470);
@@ -697,19 +697,19 @@ namespace Presentation.Admin
             this.pnlSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.pnlSuperior.Controls.Add(this.lblUsuario);
             this.pnlSuperior.Controls.Add(this.label1);
-            this.pnlSuperior.Location = new System.Drawing.Point(301, 48);
+            this.pnlSuperior.Location = new System.Drawing.Point(230, 48);
             this.pnlSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSuperior.Name = "pnlSuperior";
-            this.pnlSuperior.Size = new System.Drawing.Size(1544, 66);
+            this.pnlSuperior.Size = new System.Drawing.Size(1615, 66);
             this.pnlSuperior.TabIndex = 55;
             // 
             // lblUsuario
             // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblUsuario.Location = new System.Drawing.Point(1292, 21);
+            this.lblUsuario.Location = new System.Drawing.Point(1162, 22);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 23);
             this.lblUsuario.TabIndex = 0;
@@ -721,7 +721,7 @@ namespace Presentation.Admin
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(89, 16);
+            this.label1.Location = new System.Drawing.Point(480, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(273, 32);

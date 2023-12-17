@@ -152,7 +152,7 @@
             // 
             this.btnRealizarPago.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.btnRealizarPago.Location = new System.Drawing.Point(1189, 756);
-            this.btnRealizarPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRealizarPago.Margin = new System.Windows.Forms.Padding(4);
             this.btnRealizarPago.Name = "btnRealizarPago";
             this.btnRealizarPago.Size = new System.Drawing.Size(144, 28);
             this.btnRealizarPago.TabIndex = 24;
@@ -164,7 +164,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.btnCancelar.Location = new System.Drawing.Point(1064, 756);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 25;
@@ -211,7 +211,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(113, 23);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker.TabIndex = 31;
@@ -258,7 +258,7 @@
             this.radioEfectivo.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.radioEfectivo.ForeColor = System.Drawing.Color.Cornsilk;
             this.radioEfectivo.Location = new System.Drawing.Point(509, 206);
-            this.radioEfectivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioEfectivo.Margin = new System.Windows.Forms.Padding(4);
             this.radioEfectivo.Name = "radioEfectivo";
             this.radioEfectivo.Size = new System.Drawing.Size(104, 27);
             this.radioEfectivo.TabIndex = 36;
@@ -272,7 +272,7 @@
             this.radioTarjeta.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.radioTarjeta.ForeColor = System.Drawing.Color.Cornsilk;
             this.radioTarjeta.Location = new System.Drawing.Point(648, 206);
-            this.radioTarjeta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioTarjeta.Margin = new System.Windows.Forms.Padding(4);
             this.radioTarjeta.Name = "radioTarjeta";
             this.radioTarjeta.Size = new System.Drawing.Size(94, 27);
             this.radioTarjeta.TabIndex = 37;
@@ -450,11 +450,11 @@
             // 
             // lblUsuario
             // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblUsuario.Location = new System.Drawing.Point(1299, 21);
+            this.lblUsuario.Location = new System.Drawing.Point(983, 22);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 23);
             this.lblUsuario.TabIndex = 0;
@@ -716,7 +716,7 @@
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.lblDNi);
             this.panel2.Location = new System.Drawing.Point(371, 176);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(979, 186);
             this.panel2.TabIndex = 88;
@@ -743,7 +743,7 @@
             this.panel1.Controls.Add(this.lblFechaFin);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Location = new System.Drawing.Point(371, 427);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(979, 309);
             this.panel1.TabIndex = 89;
@@ -767,7 +767,7 @@
             this.Controls.Add(this.barraTitulo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Pagos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagos";
