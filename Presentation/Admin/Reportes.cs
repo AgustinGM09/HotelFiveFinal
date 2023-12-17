@@ -212,7 +212,7 @@ namespace Presentation.Admin
 
                     dataGridReportes.Columns["NombreMes"].HeaderText = "Nombre del Mes";
                     dataGridReportes.Columns["Anio"].HeaderText = "Año";
-                    dataGridReportes.Columns["CantidadReserva"].HeaderText = "Cantidad de Reservas";
+                    dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
                     dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
 
                     // Opcional: Mostrar el gráfico relacionado si es necesario
@@ -226,7 +226,7 @@ namespace Presentation.Admin
 
                     dataGridReportes.Columns["NombreMes"].HeaderText = "Nombre del Mes";
                     dataGridReportes.Columns["Anio"].HeaderText = "Año";
-                    dataGridReportes.Columns["CantidadReserva"].HeaderText = "Cantidad de Reservas";
+                    dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
                     dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
                     dataGridReportes.Columns["IdUsuario"].Visible = false;
                     // Opcional: Mostrar el gráfico relacionado si es necesario
@@ -266,6 +266,12 @@ namespace Presentation.Admin
                     // Asignar la lista al origen de datos del DataGridView
                     dataGridReportes.DataSource = reservasPorPeriodo;
 
+                    //aca
+                    dataGridReportes.Columns["NombreMes"].HeaderText = "Nombre del Mes";
+                    dataGridReportes.Columns["Anio"].HeaderText = "Año";
+                    dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
+                    dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
+                    dataGridReportes.Columns["IdUsuario"].Visible = false;
                     // Opcional: Mostrar el gráfico relacionado si es necesario
                     MostrarGraficoReservasPorPeriodo(reservasPorPeriodo);
                 }
@@ -649,6 +655,11 @@ namespace Presentation.Admin
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            if (nivelPermiso == 3)
+            {
+                filtro = 3;
+            }
+
             if (filtro == 1)
             {
                 CargarDatosReporteTopTipoHabitacionesMasReservadas();
