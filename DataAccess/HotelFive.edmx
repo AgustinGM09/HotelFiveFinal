@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HotelFiveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClienteReserva">
+          <Key>
+            <PropertyRef Name="IdClienteReserva" />
+          </Key>
+          <Property Name="IdClienteReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteID" Type="int" />
+          <Property Name="HabitacionID" Type="int" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaFin" Type="datetime" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dni" Type="int" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="int" />
+        </EntityType>
+        <EntityType Name="EstadoReserva">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Habitaciones">
+          <Key>
+            <PropertyRef Name="IdHabitacion" />
+          </Key>
+          <Property Name="IdHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPiso" Type="int" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="IdTipo" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
+          <Property Name="Precio" Type="float" />
+        </EntityType>
+        <EntityType Name="Pago">
+          <Key>
+            <PropertyRef Name="IdPago" />
+          </Key>
+          <Property Name="IdPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdReserva" Type="int" />
+          <Property Name="FechaFactura" Type="datetime" />
+          <Property Name="TipodePago" Type="varchar" MaxLength="20" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Piso">
+          <Key>
+            <PropertyRef Name="idPiso" />
+          </Key>
+          <Property Name="idPiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumeroPiso" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdHabitacion" Type="int" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaFin" Type="datetime" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <EntityType Name="Tipo_Usuario">
+          <Key>
+            <PropertyRef Name="id_tipoUsuario" />
+          </Key>
+          <Property Name="id_tipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoHabitacion">
+          <Key>
+            <PropertyRef Name="idTipoHabitacion" />
+          </Key>
+          <Property Name="idTipoHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipoUsuario" Type="int" Nullable="false" />
+          <Property Name="DNI" Type="int" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="telefono" Type="int" Nullable="false" />
+          <Property Name="contraseña" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="baja" Type="int" />
+        </EntityType>
+        <Association Name="FK_ClienteID">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="ClienteReserva" Type="Self.ClienteReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ClienteReserva">
+              <PropertyRef Name="ClienteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HabitacionID">
+          <End Role="Habitaciones" Type="Self.Habitaciones" Multiplicity="0..1" />
+          <End Role="ClienteReserva" Type="Self.ClienteReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="ClienteReserva">
+              <PropertyRef Name="HabitacionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdCliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdEstado">
+          <End Role="EstadoReserva" Type="Self.EstadoReserva" Multiplicity="0..1" />
+          <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoReserva">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdHabitacion">
+          <End Role="Habitaciones" Type="Self.Habitaciones" Multiplicity="0..1" />
+          <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdPiso">
+          <End Role="Piso" Type="Self.Piso" Multiplicity="0..1" />
+          <End Role="Habitaciones" Type="Self.Habitaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Piso">
+              <PropertyRef Name="idPiso" />
+            </Principal>
+            <Dependent Role="Habitaciones">
+              <PropertyRef Name="IdPiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdReserva">
+          <End Role="Reservas" Type="Self.Reservas" Multiplicity="0..1" />
+          <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservas">
+              <PropertyRef Name="IdReserva" />
+            </Principal>
+            <Dependent Role="Pago">
+              <PropertyRef Name="IdReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdTipo">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="Habitaciones" Type="Self.Habitaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="Habitaciones">
+              <PropertyRef Name="IdTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdUsuario">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tipoUsuario">
+          <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Usuario">
+              <PropertyRef Name="id_tipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="id_tipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelFiveModelStoreContainer">
+          <EntitySet Name="ClienteReserva" EntityType="Self.ClienteReserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoReserva" EntityType="Self.EstadoReserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Habitaciones" EntityType="Self.Habitaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Piso" EntityType="Self.Piso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservas" EntityType="Self.Reservas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoHabitacion" EntityType="Self.TipoHabitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClienteID" Association="Self.FK_ClienteID">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ClienteReserva" EntitySet="ClienteReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HabitacionID" Association="Self.FK_HabitacionID">
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+            <End Role="ClienteReserva" EntitySet="ClienteReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdCliente" Association="Self.FK_IdCliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdEstado" Association="Self.FK_IdEstado">
+            <End Role="EstadoReserva" EntitySet="EstadoReserva" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdHabitacion" Association="Self.FK_IdHabitacion">
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdPiso" Association="Self.FK_IdPiso">
+            <End Role="Piso" EntitySet="Piso" />
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdReserva" Association="Self.FK_IdReserva">
+            <End Role="Reservas" EntitySet="Reservas" />
+            <End Role="Pago" EntitySet="Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdTipo" Association="Self.FK_IdTipo">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdUsuario" Association="Self.FK_IdUsuario">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tipoUsuario" Association="Self.FK_tipoUsuario">
+            <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelFiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HotelFiveEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="HotelFiveModel.Clientes" />
+          <EntitySet Name="EstadoReserva" EntityType="HotelFiveModel.EstadoReserva" />
+          <EntitySet Name="Habitaciones" EntityType="HotelFiveModel.Habitaciones" />
+          <EntitySet Name="Piso" EntityType="HotelFiveModel.Piso" />
+          <EntitySet Name="Reservas" EntityType="HotelFiveModel.Reservas" />
+          <EntitySet Name="Tipo_Usuario" EntityType="HotelFiveModel.Tipo_Usuario" />
+          <EntitySet Name="TipoHabitacion" EntityType="HotelFiveModel.TipoHabitacion" />
+          <EntitySet Name="Usuarios" EntityType="HotelFiveModel.Usuarios" />
+          <AssociationSet Name="FK_IdCliente" Association="HotelFiveModel.FK_IdCliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdEstado" Association="HotelFiveModel.FK_IdEstado">
+            <End Role="EstadoReserva" EntitySet="EstadoReserva" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdHabitacion" Association="HotelFiveModel.FK_IdHabitacion">
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdPiso" Association="HotelFiveModel.FK_IdPiso">
+            <End Role="Piso" EntitySet="Piso" />
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdTipo" Association="HotelFiveModel.FK_IdTipo">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdUsuario" Association="HotelFiveModel.FK_IdUsuario">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Reservas" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tipoUsuario" Association="HotelFiveModel.FK_tipoUsuario">
+            <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="Pago" EntityType="HotelFiveModel.Pago" />
+          <AssociationSet Name="FK_IdReserva" Association="HotelFiveModel.FK_IdReserva">
+            <End Role="Reservas" EntitySet="Reservas" />
+            <End Role="Pago" EntitySet="Pago" />
+          </AssociationSet>
+          <EntitySet Name="ClienteReserva" EntityType="HotelFiveModel.ClienteReserva" />
+          <AssociationSet Name="FK_ClienteID" Association="HotelFiveModel.FK_ClienteID">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ClienteReserva" EntitySet="ClienteReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HabitacionID" Association="HotelFiveModel.FK_HabitacionID">
+            <End Role="Habitaciones" EntitySet="Habitaciones" />
+            <End Role="ClienteReserva" EntitySet="ClienteReserva" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dni" Type="Int32" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int32" />
+          <NavigationProperty Name="Reservas" Relationship="HotelFiveModel.FK_IdCliente" FromRole="Clientes" ToRole="Reservas" />
+          <NavigationProperty Name="ClienteReserva" Relationship="HotelFiveModel.FK_ClienteID" FromRole="Clientes" ToRole="ClienteReserva" />
+        </EntityType>
+        <EntityType Name="EstadoReserva">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservas" Relationship="HotelFiveModel.FK_IdEstado" FromRole="EstadoReserva" ToRole="Reservas" />
+        </EntityType>
+        <EntityType Name="Habitaciones">
+          <Key>
+            <PropertyRef Name="IdHabitacion" />
+          </Key>
+          <Property Name="IdHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPiso" Type="Int32" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="IdTipo" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="Double" />
+          <NavigationProperty Name="Reservas" Relationship="HotelFiveModel.FK_IdHabitacion" FromRole="Habitaciones" ToRole="Reservas" />
+          <NavigationProperty Name="Piso" Relationship="HotelFiveModel.FK_IdPiso" FromRole="Habitaciones" ToRole="Piso" />
+          <NavigationProperty Name="TipoHabitacion" Relationship="HotelFiveModel.FK_IdTipo" FromRole="Habitaciones" ToRole="TipoHabitacion" />
+          <NavigationProperty Name="ClienteReserva" Relationship="HotelFiveModel.FK_HabitacionID" FromRole="Habitaciones" ToRole="ClienteReserva" />
+        </EntityType>
+        <EntityType Name="Piso">
+          <Key>
+            <PropertyRef Name="idPiso" />
+          </Key>
+          <Property Name="idPiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroPiso" Type="Int32" />
+          <NavigationProperty Name="Habitaciones" Relationship="HotelFiveModel.FK_IdPiso" FromRole="Piso" ToRole="Habitaciones" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Reservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdHabitacion" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Double" />
+          <NavigationProperty Name="Clientes" Relationship="HotelFiveModel.FK_IdCliente" FromRole="Reservas" ToRole="Clientes" />
+          <NavigationProperty Name="EstadoReserva" Relationship="HotelFiveModel.FK_IdEstado" FromRole="Reservas" ToRole="EstadoReserva" />
+          <NavigationProperty Name="Habitaciones" Relationship="HotelFiveModel.FK_IdHabitacion" FromRole="Reservas" ToRole="Habitaciones" />
+          <NavigationProperty Name="Usuarios" Relationship="HotelFiveModel.FK_IdUsuario" FromRole="Reservas" ToRole="Usuarios" />
+          <NavigationProperty Name="Pago" Relationship="HotelFiveModel.FK_IdReserva" FromRole="Reservas" ToRole="Pago" />
+        </EntityType>
+        <EntityType Name="Tipo_Usuario">
+          <Key>
+            <PropertyRef Name="id_tipoUsuario" />
+          </Key>
+          <Property Name="id_tipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="HotelFiveModel.FK_tipoUsuario" FromRole="Tipo_Usuario" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="TipoHabitacion">
+          <Key>
+            <PropertyRef Name="idTipoHabitacion" />
+          </Key>
+          <Property Name="idTipoHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Habitaciones" Relationship="HotelFiveModel.FK_IdTipo" FromRole="TipoHabitacion" ToRole="Habitaciones" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="DNI" Type="Int32" Nullable="false" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="baja" Type="Int32" />
+          <NavigationProperty Name="Reservas" Relationship="HotelFiveModel.FK_IdUsuario" FromRole="Usuarios" ToRole="Reservas" />
+          <NavigationProperty Name="Tipo_Usuario" Relationship="HotelFiveModel.FK_tipoUsuario" FromRole="Usuarios" ToRole="Tipo_Usuario" />
+        </EntityType>
+        <Association Name="FK_IdCliente">
+          <End Type="HotelFiveModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Reservas" Role="Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdEstado">
+          <End Type="HotelFiveModel.EstadoReserva" Role="EstadoReserva" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Reservas" Role="Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoReserva">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdHabitacion">
+          <End Type="HotelFiveModel.Habitaciones" Role="Habitaciones" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Reservas" Role="Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdPiso">
+          <End Type="HotelFiveModel.Piso" Role="Piso" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Habitaciones" Role="Habitaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Piso">
+              <PropertyRef Name="idPiso" />
+            </Principal>
+            <Dependent Role="Habitaciones">
+              <PropertyRef Name="IdPiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdTipo">
+          <End Type="HotelFiveModel.TipoHabitacion" Role="TipoHabitacion" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Habitaciones" Role="Habitaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="Habitaciones">
+              <PropertyRef Name="IdTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdUsuario">
+          <End Type="HotelFiveModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Reservas" Role="Reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="Reservas">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tipoUsuario">
+          <End Type="HotelFiveModel.Tipo_Usuario" Role="Tipo_Usuario" Multiplicity="1" />
+          <End Type="HotelFiveModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Usuario">
+              <PropertyRef Name="id_tipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="id_tipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pago">
+          <Key>
+            <PropertyRef Name="IdPago" />
+          </Key>
+          <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdReserva" Type="Int32" />
+          <Property Name="FechaFactura" Type="DateTime" Precision="3" />
+          <Property Name="TipodePago" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservas" Relationship="HotelFiveModel.FK_IdReserva" FromRole="Pago" ToRole="Reservas" />
+        </EntityType>
+        <Association Name="FK_IdReserva">
+          <End Type="HotelFiveModel.Reservas" Role="Reservas" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.Pago" Role="Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservas">
+              <PropertyRef Name="IdReserva" />
+            </Principal>
+            <Dependent Role="Pago">
+              <PropertyRef Name="IdReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ClienteReserva">
+          <Key>
+            <PropertyRef Name="IdClienteReserva" />
+          </Key>
+          <Property Name="IdClienteReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteID" Type="Int32" />
+          <Property Name="HabitacionID" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clientes" Relationship="HotelFiveModel.FK_ClienteID" FromRole="ClienteReserva" ToRole="Clientes" />
+          <NavigationProperty Name="Habitaciones" Relationship="HotelFiveModel.FK_HabitacionID" FromRole="ClienteReserva" ToRole="Habitaciones" />
+        </EntityType>
+        <Association Name="FK_ClienteID">
+          <End Type="HotelFiveModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.ClienteReserva" Role="ClienteReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ClienteReserva">
+              <PropertyRef Name="ClienteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HabitacionID">
+          <End Type="HotelFiveModel.Habitaciones" Role="Habitaciones" Multiplicity="0..1" />
+          <End Type="HotelFiveModel.ClienteReserva" Role="ClienteReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="ClienteReserva">
+              <PropertyRef Name="HabitacionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelFiveModelStoreContainer" CdmEntityContainer="HotelFiveEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="HotelFiveModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoReserva">
+            <EntityTypeMapping TypeName="HotelFiveModel.EstadoReserva">
+              <MappingFragment StoreEntitySet="EstadoReserva">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Habitaciones">
+            <EntityTypeMapping TypeName="HotelFiveModel.Habitaciones">
+              <MappingFragment StoreEntitySet="Habitaciones">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="IdPiso" ColumnName="IdPiso" />
+                <ScalarProperty Name="IdHabitacion" ColumnName="IdHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Piso">
+            <EntityTypeMapping TypeName="HotelFiveModel.Piso">
+              <MappingFragment StoreEntitySet="Piso">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="NumeroPiso" ColumnName="NumeroPiso" />
+                <ScalarProperty Name="idPiso" ColumnName="idPiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservas">
+            <EntityTypeMapping TypeName="HotelFiveModel.Reservas">
+              <MappingFragment StoreEntitySet="Reservas">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="IdHabitacion" ColumnName="IdHabitacion" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Usuario">
+            <EntityTypeMapping TypeName="HotelFiveModel.Tipo_Usuario">
+              <MappingFragment StoreEntitySet="Tipo_Usuario">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_tipoUsuario" ColumnName="id_tipoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoHabitacion">
+            <EntityTypeMapping TypeName="HotelFiveModel.TipoHabitacion">
+              <MappingFragment StoreEntitySet="TipoHabitacion">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="idTipoHabitacion" ColumnName="idTipoHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="HotelFiveModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="baja" ColumnName="baja" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="id_tipoUsuario" ColumnName="id_tipoUsuario" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pago">
+            <EntityTypeMapping TypeName="HotelFiveModel.Pago">
+              <MappingFragment StoreEntitySet="Pago">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TipodePago" ColumnName="TipodePago" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClienteReserva">
+            <EntityTypeMapping TypeName="HotelFiveModel.ClienteReserva">
+              <MappingFragment StoreEntitySet="ClienteReserva">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="HabitacionID" ColumnName="HabitacionID" />
+                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+                <ScalarProperty Name="IdClienteReserva" ColumnName="IdClienteReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

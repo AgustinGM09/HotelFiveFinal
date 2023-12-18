@@ -367,9 +367,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-DataAccess/HotelFive.edmx
-DataAccess/App.config
-Presentation/App.config
-DataAccess/App.Config
-Domain/App.config
-Presentation/App.config
+

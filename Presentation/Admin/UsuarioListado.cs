@@ -304,18 +304,25 @@ namespace Presentation.Admin
             {
                 dni = 0;
             }
-
-            List<UsuarioDTO> resultados;
-            
-            resultados = usuarioController.BuscarUsuarios(nombre, apellido, dni);
-            // Llena el DataGridView con los resultados
-            dataGridUsuarios.DataSource = resultados;
-            
-            // Verifica si se encontraron resultados
-            if (resultados.Count == 0)
+            if (nombre.Length == 0 && apellido.Length == 0 && dni == 0)
             {
-                MessageBox.Show("No se encontraron registros con los criterios de búsqueda ingresados.");
+                List<UsuarioDTO> resultados;
+                resultados= usuarioController.ListarUsuarios();
+                dataGridUsuarios.DataSource= resultados;
             }
+            else
+            {
+                List<UsuarioDTO> resultados;
+
+                resultados = usuarioController.BuscarUsuarios(nombre, apellido, dni);
+                // Llena el DataGridView con los resultados
+                dataGridUsuarios.DataSource = resultados;
+                if (resultados.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros con los criterios de búsqueda ingresados.");
+                }
+            }
+            // Verifica si se encontraron resultados
         }
 
         private void btnReservas_Click(object sender, EventArgs e)
