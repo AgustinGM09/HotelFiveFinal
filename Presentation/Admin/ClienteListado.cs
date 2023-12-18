@@ -118,6 +118,7 @@ namespace Presentation.Admin
                     dataGridClientes.DataSource = listaClientes;
 
                 dataGridClientes.Columns["IdCliente"].Visible = false;
+                dataGridClientes.Columns["FechaNacimiento"].HeaderText = "Fecha de Nacimiento";
             }
             catch (Exception ex)
             {
@@ -170,25 +171,30 @@ namespace Presentation.Admin
                 {
                     // Manejar el caso en el que el valor no sea un número entero válido
                     MessageBox.Show("Por favor, ingrese un número de DNI válido.");
-                    return;
+                    return; // Aquí se detiene la ejecución en caso de error en la entrada del DNI
                 }
                 dni = dniValue;
             }
 
             // Llama a la función BuscarUsuarios del controlador
             List<dynamic> resultados = clienteController.BuscarClientes(nombre, apellido, dni);
-
-            // Llena el DataGridView con los resultados
-            dataGridClientes.DataSource = resultados;
-
             // Verifica si se encontraron resultados
             if (resultados.Count == 0)
             {
                 MessageBox.Show("No se encontraron registros con los criterios de búsqueda ingresados.");
             }
+            else
+            {
+                // Llena el DataGridView con los resultados
+                dataGridClientes.DataSource = resultados;
+                dataGridClientes.Columns["IdCliente"].Visible = false;
+                dataGridClientes.Columns["FechaNacimiento"].HeaderText = "Fecha de Nacimiento";
+            }
+            
+
         }
 
-        private void Dashboar_Click(object sender, EventArgs e)
+            private void Dashboar_Click(object sender, EventArgs e)
         {
             this.Close();
             this.ShowInTaskbar = false;
