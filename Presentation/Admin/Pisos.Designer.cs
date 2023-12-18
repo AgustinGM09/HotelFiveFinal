@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pisos));
             this.barraTitulo = new System.Windows.Forms.Panel();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -37,7 +37,6 @@
             this.pnlDetallePisos = new System.Windows.Forms.Panel();
             this.btnCrearPiso = new System.Windows.Forms.Button();
             this.dataGridPisos = new System.Windows.Forms.DataGridView();
-            this.lblListaPisos = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Logo = new System.Windows.Forms.ToolStripMenuItem();
             this.Dashboar = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +126,6 @@
             this.pnlDetallePisos.BackColor = System.Drawing.Color.Transparent;
             this.pnlDetallePisos.Controls.Add(this.btnCrearPiso);
             this.pnlDetallePisos.Controls.Add(this.dataGridPisos);
-            this.pnlDetallePisos.Controls.Add(this.lblListaPisos);
             this.pnlDetallePisos.Location = new System.Drawing.Point(288, 118);
             this.pnlDetallePisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlDetallePisos.Name = "pnlDetallePisos";
@@ -157,14 +155,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridPisos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPisos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridPisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPisos.Location = new System.Drawing.Point(21, 98);
             this.dataGridPisos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -175,17 +173,6 @@
             this.dataGridPisos.RowTemplate.Height = 24;
             this.dataGridPisos.Size = new System.Drawing.Size(1413, 713);
             this.dataGridPisos.TabIndex = 1;
-            // 
-            // lblListaPisos
-            // 
-            this.lblListaPisos.AutoSize = true;
-            this.lblListaPisos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaPisos.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblListaPisos.Location = new System.Drawing.Point(19, 18);
-            this.lblListaPisos.Name = "lblListaPisos";
-            this.lblListaPisos.Size = new System.Drawing.Size(139, 23);
-            this.lblListaPisos.TabIndex = 0;
-            this.lblListaPisos.Text = "Lista de pisos";
             // 
             // menuStrip1
             // 
@@ -394,7 +381,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.pnlDetallePisos.ResumeLayout(false);
-            this.pnlDetallePisos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPisos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -414,7 +400,6 @@
         private System.Windows.Forms.Panel pnlDetallePisos;
         private System.Windows.Forms.Button btnCrearPiso;
         private System.Windows.Forms.DataGridView dataGridPisos;
-        private System.Windows.Forms.Label lblListaPisos;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Logo;
         private System.Windows.Forms.ToolStripMenuItem Dashboar;

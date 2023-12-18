@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barraTitulo = new System.Windows.Forms.Panel();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -126,7 +126,7 @@
             // 
             // btnTotalHabitaciones
             // 
-            this.btnTotalHabitaciones.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnTotalHabitaciones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnTotalHabitaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotalHabitaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnTotalHabitaciones.Image")));
             this.btnTotalHabitaciones.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -142,7 +142,7 @@
             // 
             // btnHabitacionesDisponibles
             // 
-            this.btnHabitacionesDisponibles.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnHabitacionesDisponibles.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnHabitacionesDisponibles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(109)))), ((int)(((byte)(183)))));
             this.btnHabitacionesDisponibles.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHabitacionesDisponibles.ForeColor = System.Drawing.Color.Cornsilk;
@@ -160,7 +160,7 @@
             // 
             // btnHabitacionesOcupadas
             // 
-            this.btnHabitacionesOcupadas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnHabitacionesOcupadas.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnHabitacionesOcupadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(129)))), ((int)(((byte)(59)))));
             this.btnHabitacionesOcupadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHabitacionesOcupadas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,7 +178,7 @@
             // 
             // btnHabitacionesEnLimpieza
             // 
-            this.btnHabitacionesEnLimpieza.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnHabitacionesEnLimpieza.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnHabitacionesEnLimpieza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(148)))), ((int)(((byte)(77)))));
             this.btnHabitacionesEnLimpieza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHabitacionesEnLimpieza.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -201,7 +201,7 @@
             this.pnlDetalleHabitacion.BackColor = System.Drawing.Color.Transparent;
             this.pnlDetalleHabitacion.Controls.Add(this.dataGridHabitaciones);
             this.pnlDetalleHabitacion.Controls.Add(this.lblListaHabitacion);
-            this.pnlDetalleHabitacion.Location = new System.Drawing.Point(335, 327);
+            this.pnlDetalleHabitacion.Location = new System.Drawing.Point(311, 308);
             this.pnlDetalleHabitacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlDetalleHabitacion.Name = "pnlDetalleHabitacion";
             this.pnlDetalleHabitacion.Size = new System.Drawing.Size(1453, 532);
@@ -213,21 +213,19 @@
             this.dataGridHabitaciones.AllowUserToDeleteRows = false;
             this.dataGridHabitaciones.AllowUserToResizeColumns = false;
             this.dataGridHabitaciones.AllowUserToResizeRows = false;
-            this.dataGridHabitaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridHabitaciones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridHabitaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridHabitaciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridHabitaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridHabitaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridHabitaciones.Location = new System.Drawing.Point(21, 98);
+            this.dataGridHabitaciones.Location = new System.Drawing.Point(37, 35);
             this.dataGridHabitaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridHabitaciones.MultiSelect = false;
             this.dataGridHabitaciones.Name = "dataGridHabitaciones";
@@ -239,14 +237,15 @@
             // 
             // lblListaHabitacion
             // 
+            this.lblListaHabitacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblListaHabitacion.AutoSize = true;
             this.lblListaHabitacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblListaHabitacion.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblListaHabitacion.Location = new System.Drawing.Point(19, 18);
+            this.lblListaHabitacion.Location = new System.Drawing.Point(55, 10);
             this.lblListaHabitacion.Name = "lblListaHabitacion";
-            this.lblListaHabitacion.Size = new System.Drawing.Size(219, 23);
+            this.lblListaHabitacion.Size = new System.Drawing.Size(292, 23);
             this.lblListaHabitacion.TabIndex = 0;
-            this.lblListaHabitacion.Text = "Lista de Habitaciones";
+            this.lblListaHabitacion.Text = "Lista de Habitaciones Totales";
             // 
             // menuStrip1
             // 

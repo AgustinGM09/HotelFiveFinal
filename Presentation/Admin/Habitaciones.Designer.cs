@@ -35,14 +35,12 @@ namespace Presentation.Admin
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlDetalleHabitacion = new System.Windows.Forms.Panel();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblSeleccionEstado = new System.Windows.Forms.Label();
             this.cbxEstados = new System.Windows.Forms.ComboBox();
             this.btnCrearHabitacion = new System.Windows.Forms.Button();
             this.dataGridHabitaciones = new System.Windows.Forms.DataGridView();
-            this.lblListaHabitacion = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Logo = new System.Windows.Forms.ToolStripMenuItem();
             this.Dashboar = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,23 +123,9 @@ namespace Presentation.Admin
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblTitulo.Location = new System.Drawing.Point(992, 119);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(360, 40);
-            this.lblTitulo.TabIndex = 49;
-            this.lblTitulo.Text = "GESTIÓN HABITACIÓN";
-            // 
             // pnlDetalleHabitacion
             // 
-            this.pnlDetalleHabitacion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pnlDetalleHabitacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlDetalleHabitacion.AutoSize = true;
             this.pnlDetalleHabitacion.BackColor = System.Drawing.Color.Transparent;
             this.pnlDetalleHabitacion.Controls.Add(this.btnFiltrar);
@@ -149,11 +133,10 @@ namespace Presentation.Admin
             this.pnlDetalleHabitacion.Controls.Add(this.cbxEstados);
             this.pnlDetalleHabitacion.Controls.Add(this.btnCrearHabitacion);
             this.pnlDetalleHabitacion.Controls.Add(this.dataGridHabitaciones);
-            this.pnlDetalleHabitacion.Controls.Add(this.lblListaHabitacion);
-            this.pnlDetalleHabitacion.Location = new System.Drawing.Point(331, 176);
+            this.pnlDetalleHabitacion.Location = new System.Drawing.Point(277, 118);
             this.pnlDetalleHabitacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlDetalleHabitacion.Name = "pnlDetalleHabitacion";
-            this.pnlDetalleHabitacion.Size = new System.Drawing.Size(1453, 839);
+            this.pnlDetalleHabitacion.Size = new System.Drawing.Size(21150, 2136);
             this.pnlDetalleHabitacion.TabIndex = 50;
             // 
             // btnFiltrar
@@ -226,26 +209,15 @@ namespace Presentation.Admin
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridHabitaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridHabitaciones.Location = new System.Drawing.Point(21, 98);
+            this.dataGridHabitaciones.Location = new System.Drawing.Point(21, 109);
             this.dataGridHabitaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridHabitaciones.MultiSelect = false;
             this.dataGridHabitaciones.Name = "dataGridHabitaciones";
             this.dataGridHabitaciones.RowHeadersVisible = false;
             this.dataGridHabitaciones.RowHeadersWidth = 51;
             this.dataGridHabitaciones.RowTemplate.Height = 24;
-            this.dataGridHabitaciones.Size = new System.Drawing.Size(1413, 713);
+            this.dataGridHabitaciones.Size = new System.Drawing.Size(1418, 667);
             this.dataGridHabitaciones.TabIndex = 1;
-            // 
-            // lblListaHabitacion
-            // 
-            this.lblListaHabitacion.AutoSize = true;
-            this.lblListaHabitacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaHabitacion.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblListaHabitacion.Location = new System.Drawing.Point(19, 18);
-            this.lblListaHabitacion.Name = "lblListaHabitacion";
-            this.lblListaHabitacion.Size = new System.Drawing.Size(219, 23);
-            this.lblListaHabitacion.TabIndex = 0;
-            this.lblListaHabitacion.Text = "Lista de Habitaciones";
             // 
             // menuStrip1
             // 
@@ -408,11 +380,11 @@ namespace Presentation.Admin
             // 
             // lblUsuario
             // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblUsuario.Location = new System.Drawing.Point(1296, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(1149, 22);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 23);
             this.lblUsuario.TabIndex = 0;
@@ -441,9 +413,8 @@ namespace Presentation.Admin
             this.ClientSize = new System.Drawing.Size(1730, 788);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlSuperior);
-            this.Controls.Add(this.pnlDetalleHabitacion);
-            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.barraTitulo);
+            this.Controls.Add(this.pnlDetalleHabitacion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -473,11 +444,9 @@ namespace Presentation.Admin
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel pnlDetalleHabitacion;
         private System.Windows.Forms.Button btnCrearHabitacion;
         private System.Windows.Forms.DataGridView dataGridHabitaciones;
-        private System.Windows.Forms.Label lblListaHabitacion;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Logo;
         private System.Windows.Forms.ToolStripMenuItem Dashboar;

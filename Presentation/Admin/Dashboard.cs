@@ -246,6 +246,7 @@ namespace Presentation.Admin
 
             // Asignar la lista como origen de datos del DataGridView
             dataGridHabitaciones.DataSource = habitaciones;
+            lblListaHabitacion.Text = "Lista de Habitaciones Totales";
 
             dataGridHabitaciones.AutoResizeColumns();
 
@@ -262,6 +263,7 @@ namespace Presentation.Admin
             dataGridHabitaciones.DataSource = habitaciones;
 
             dataGridHabitaciones.AutoResizeColumns();
+            lblListaHabitacion.Text = "Habitaciones Disponibles";
 
             // Peronalización de la tabla
             ConfigurarDataGridView();
@@ -286,6 +288,8 @@ namespace Presentation.Admin
             // Asignar la lista como origen de datos del DataGridView
             dataGridHabitaciones.DataSource = habitaciones;
 
+            lblListaHabitacion.Text = "Lista de Habitaciones Ocupadas";
+
             dataGridHabitaciones.AutoResizeColumns();
 
             // Peronalización de la tabla
@@ -299,6 +303,8 @@ namespace Presentation.Admin
 
             // Asignar la lista como origen de datos del DataGridView
             dataGridHabitaciones.DataSource = habitaciones;
+
+            lblListaHabitacion.Text = "Lista de Habitaciones en Limpieza";
 
             dataGridHabitaciones.AutoResizeColumns();
 
