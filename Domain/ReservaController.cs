@@ -225,12 +225,13 @@ namespace Domain
             }
         }
 
+        //funcionando
         public List<ReservasPorPeriodoDTO> ObtenerReservasPorPeriodo(DateTime fechaInicio, DateTime fechaFin)
         {
             using (HotelFiveEntities hotelFive = new HotelFiveEntities())
             {
                 var reservasPorPeriodo = hotelFive.Reservas
-                    .Where(r => r.FechaInicio != null && r.FechaInicio >= fechaInicio && r.FechaFin <= fechaFin) // Filtrar por el rango de fechas
+                    .Where(r => r.FechaInicio != null && r.FechaInicio >= fechaInicio && r.FechaInicio <= fechaFin ) // Filtrar por el rango de fechas
                     .GroupBy(r => new { r.FechaInicio.Value.Year, r.FechaInicio.Value.Month })
                     .Select(g => new ReservasPorPeriodoDTO
                     {
@@ -250,14 +251,15 @@ namespace Domain
             }
         }
 
-        public List<ReservasPorPeriodoDTO> ObtenerReservasPorPeriodo(int idUsuario, DateTime fechaInicio, DateTime fechaFin)
+        public List<ReservasPorMesDTO> ObtenerReservasPorPeriodo(int idUsuario, DateTime fechaInicio, DateTime fechaFin)
         {
+            //.Where(r => r.FechaInicio != null && r.FechaInicio.Value.Year == anioActual && r.IdUsuario == idUsuario)
             using (HotelFiveEntities hotelFive = new HotelFiveEntities())
             {
-                var reservasPorPeriodo = hotelFive.Reservas
-                    .Where(r => r.FechaInicio != null && r.FechaInicio >= fechaInicio && r.FechaFin <= fechaFin && r.IdUsuario == idUsuario) // Filtrar por el rango de fechas y el ID del usuario
+                var reservasPorMes = hotelFive.Reservas
+                    .Where(r => r.FechaInicio != null && r.FechaInicio >= fechaInicio && r.FechaInicio <= fechaFin && r.IdUsuario == idUsuario)
                     .GroupBy(r => new { r.FechaInicio.Value.Year, r.FechaInicio.Value.Month })
-                    .Select(g => new ReservasPorPeriodoDTO
+                    .Select(g => new ReservasPorMesDTO
                     {
                         Anio = g.Key.Year,
                         Mes = g.Key.Month,
@@ -266,14 +268,15 @@ namespace Domain
                     .ToList();
 
                 // Traducir los números de mes a nombres de mes
-                foreach (var reservaPorPeriodo in reservasPorPeriodo)
+                foreach (var reservaPorMes in reservasPorMes)
                 {
-                    reservaPorPeriodo.NombreMes = ObtenerNombreMes(reservaPorPeriodo.Mes);
+                    reservaPorMes.NombreMes = ObtenerNombreMes(reservaPorMes.Mes);
                 }
 
-                return reservasPorPeriodo;
+                return reservasPorMes;
             }
         }
+
 
         public string ObtenerNombreMes(int numeroMes)
         {

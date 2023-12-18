@@ -12,7 +12,6 @@ namespace Domain
         public int Mes { get; set; }
         public string NombreMes { get; set; }
         public int CantidadReservas { get; set; }
-
         public int IdUsuario { get; set; }
     }
 }

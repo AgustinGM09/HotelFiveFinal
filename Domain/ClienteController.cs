@@ -276,6 +276,40 @@ namespace Domain
             }
         }
 
+        public List<ClienteReservasDTO> ObtenerTopClientesDelMes(int cantidadTop)
+        {
+            using (HotelFiveEntities hotelFive = new HotelFiveEntities())
+            {
+                DateTime fechaInicioMes = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                DateTime fechaFinMes = fechaInicioMes.AddMonths(1).AddSeconds(-1);
+
+                var topClientes = hotelFive.Clientes
+                    .Select(cliente => new
+                    {
+                        Cliente = cliente,
+                        CantidadReservas = hotelFive.Reservas
+                            .Where(r => r.IdCliente == cliente.IdCliente && r.FechaInicio >= fechaInicioMes && r.FechaFin <= fechaFinMes)
+                            .Count()
+                    })
+                    .Where(tc => tc.CantidadReservas > 0)
+                    .OrderByDescending(tc => tc.CantidadReservas)
+                    .Take(cantidadTop)
+                    .Select(tc => new ClienteReservasDTO
+                    {
+                        IdCliente = tc.Cliente.IdCliente,
+                        Dni = tc.Cliente.Dni,
+                        Apellido = tc.Cliente.Apellido,
+                        Nombre = tc.Cliente.Nombre,
+                        FechaNacimiento = tc.Cliente.FechaNacimiento,
+                        Email = tc.Cliente.Email,
+                        Telefono = tc.Cliente.Telefono,
+                        CantidadReservas = tc.CantidadReservas
+                    })
+                    .ToList();
+
+                return topClientes;
+            }
+        }
 
 
 

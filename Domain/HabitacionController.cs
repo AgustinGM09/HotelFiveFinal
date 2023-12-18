@@ -644,6 +644,31 @@ namespace Domain
             }
         }
 
+        public List<TipoHabitacionReservadaDTO> ObtenerTiposHabitacionesMasReservadosDelMes()
+        {
+            using (HotelFiveEntities hotelFive = new HotelFiveEntities())
+            {
+                DateTime fechaInicioMes = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                DateTime fechaFinMes = fechaInicioMes.AddMonths(1).AddSeconds(-1);
+
+                var tiposHabitacionReservados = hotelFive.Reservas
+                    .Where(r => r.FechaInicio >= fechaInicioMes && r.FechaFin <= fechaFinMes)
+                    .Join(hotelFive.Habitaciones, r => r.IdHabitacion, h => h.IdHabitacion, (r, h) => new { r, h })
+                    .Join(hotelFive.TipoHabitacion, x => x.h.IdTipo, th => th.idTipoHabitacion, (x, th) => new { x, th })
+                    .GroupBy(g => g.th.Tipo)
+                    .Select(g => new TipoHabitacionReservadaDTO
+                    {
+                        TipoHabitacion = g.Key,
+                        CantidadReservas = g.Count()
+                    })
+                    .OrderByDescending(x => x.CantidadReservas)
+                    .ToList();
+
+                return tiposHabitacionReservados;
+            }
+        }
+
+
 
     }
 }

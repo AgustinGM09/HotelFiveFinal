@@ -81,7 +81,7 @@ namespace Presentation.Admin
                 btnTopTipoHabitacionesMasReservadas.Visible = false;
                 btnTopClientes.Visible = false;
                 btnReservasPorMes.Location = new Point(600, 129);
-                filtro = 3;
+                //filtro = 3;
             }
             #endregion
         }
@@ -91,6 +91,7 @@ namespace Presentation.Admin
         private void btnTopTipoHabitacionesMasReservadas_Click(object sender, EventArgs e)
         {
             filtro = 1;
+            CargarDatosReporteTopTipoHabitacionesMasReservadasPorMes();
         }
 
         private void Reportes_Load(object sender, EventArgs e)
@@ -136,6 +137,45 @@ namespace Presentation.Admin
             }
         }
 
+       private void CargarDatosReporteTopTipoHabitacionesMasReservadasPorMes()
+        {
+            try
+            {
+                lblTitulo.Text = "Habitaciones Más Reservadas";
+                lblTitulo.Visible = true;
+
+                DateTime fechaInicio = dateTimePicker1.Value;
+                DateTime fechaFin = dateTimePicker2.Value;
+                fechaFin = fechaFin.AddSeconds(1);
+
+                // Validar que la fecha de inicio sea mayor o igual a la fecha de fin
+                if (fechaInicio > fechaFin)
+                {
+                    MessageBox.Show("La fecha de fin no puede ser menor que la fecha de inicio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return; // Salir del método si hay un error
+                }
+
+                // Obtener los tipos de habitaciones más reservados desde el controlador
+                List<TipoHabitacionReservadaDTO> tiposHabitaciones = habitacionController.ObtenerTiposHabitacionesMasReservadosDelMes();
+                lblTitulo.Text = "Habitaciones Más Reservadas del Mes Actual";
+
+                // Asignar la lista al origen de datos del DataGridView
+                dataGridReportes.DataSource = tiposHabitaciones;
+
+                // Opcional: Ajustar el formato de las columnas si es necesario
+                // Por ejemplo, puedes cambiar el nombre de las columnas
+                dataGridReportes.Columns["TipoHabitacion"].HeaderText = "Tipo de Habitación";
+                dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
+
+                MostrarGraficoTopTipoHabitacionesMasReservada();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos del reporte: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void MostrarGraficoTopTipoHabitacionesMasReservada()
         {
             // Limpiar el gráfico antes de agregar nuevos datos
@@ -161,9 +201,41 @@ namespace Presentation.Admin
 
         private void btnTopClientes_Click(object sender, EventArgs e)
         {
+            // Limpiar el DataGridView antes de cargar nuevos datos
+            dataGridReportes.DataSource = null;
+            dataGridReportes.Rows.Clear();
+            dataGridReportes.Columns.Clear();
 
-            filtro = 2;
-            
+            try
+            {
+                lblTitulo.Text = "Top Clientes Del Mes Actual";
+                lblTitulo.Visible = true;
+
+                // Obtener los top clientes desde el controlador
+                List<ClienteReservasDTO> topClientes = clienteController.ObtenerTopClientesDelMes(10);
+
+                // Asignar la lista al origen de datos del DataGridView
+                dataGridReportes.DataSource = topClientes;
+
+                // Opcional: Ajustar el formato de las columnas si es necesario
+                // Por ejemplo, puedes cambiar el nombre de las columnas
+                dataGridReportes.Columns["IdCliente"].Visible = false;  // Si quieres ocultar la columna IdCliente
+                dataGridReportes.Columns["Dni"].HeaderText = "DNI";
+                dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
+                dataGridReportes.Columns["Telefono"].HeaderText = "Teléfono";
+                dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
+                dataGridReportes.Columns["FechaNacimiento"].HeaderText = "Fecha de Nacimiento";
+                // Cambiar el tamaño de la letra del título de la columna "FechaNacimiento"
+                dataGridReportes.Columns["FechaNacimiento"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
+
+                MostrarGraficoTopClientes();
+                filtro = 2;
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos del reporte: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -214,13 +286,17 @@ namespace Presentation.Admin
                     dataGridReportes.Columns["Anio"].HeaderText = "Año";
                     dataGridReportes.Columns["CantidadReservas"].HeaderText = "Cantidad de Reservas";
                     dataGridReportes.Columns["CantidadReservas"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
+                    dataGridReportes.Columns["IdUsuario"].Visible = false;
 
                     // Opcional: Mostrar el gráfico relacionado si es necesario
                     MostrarGraficoReservasPorMes(reservasPorMes);
+                    return;
                 }
                 else
                 {
+                    //MessageBox.Show(DatosUsuario.GlobalVariables.Usuarioid.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     List<ReservasPorMesDTO> reservasPorMes = reservaController.ObtenerReservasPorMes(DatosUsuario.GlobalVariables.Usuarioid);
+
                     // Asignar la lista al origen de datos del DataGridView
                     dataGridReportes.DataSource = reservasPorMes;
 
@@ -250,18 +326,19 @@ namespace Presentation.Admin
                 if (nivelPermiso == 1)
                 {
                     // Obtener las reservas por periodo desde el controlador
-                    List<ReservasPorPeriodoDTO> reservasPorPeriodo = reservaController.ObtenerReservasPorPeriodo(fechaInicio, fechaFin);
+                    List<ReservasPorPeriodoDTO> reservasPorPeriodo1 = reservaController.ObtenerReservasPorPeriodo(fechaInicio, fechaFin);
 
                     // Asignar la lista al origen de datos del DataGridView
-                    dataGridReportes.DataSource = reservasPorPeriodo;
+                    dataGridReportes.DataSource = reservasPorPeriodo1;
 
                     // Opcional: Mostrar el gráfico relacionado si es necesario
-                    MostrarGraficoReservasPorPeriodo(reservasPorPeriodo);
+                    MostrarGraficoReservasPorPeriodo(reservasPorPeriodo1);
                 }
                 else
                 {
+                    //MessageBox.Show(DatosUsuario.GlobalVariables.Usuarioid.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     // Obtener las reservas por periodo desde el controlador
-                    List<ReservasPorPeriodoDTO> reservasPorPeriodo = reservaController.ObtenerReservasPorPeriodo(DatosUsuario.GlobalVariables.Usuarioid, fechaInicio, fechaFin);
+                    List<ReservasPorMesDTO> reservasPorPeriodo = reservaController.ObtenerReservasPorPeriodo(DatosUsuario.GlobalVariables.Usuarioid, fechaInicio, fechaFin);
 
                     // Asignar la lista al origen de datos del DataGridView
                     dataGridReportes.DataSource = reservasPorPeriodo;
@@ -284,6 +361,25 @@ namespace Presentation.Admin
         }
 
         private void MostrarGraficoReservasPorPeriodo(List<ReservasPorPeriodoDTO> reservasPorPeriodo)
+        {
+            // Limpiar el gráfico antes de agregar nuevos datos
+            chart1.Series.Clear();
+            chart1.ChartAreas[0].AxisX.Title = "Periodo";
+            chart1.ChartAreas[0].AxisY.Title = "Cantidad de Reservas";
+
+            // Crear una nueva serie para el gráfico
+            chart1.Series.Add("Reservas por Periodo");
+            chart1.Series["Reservas por Periodo"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
+            // Recorrer todas las filas del DataGridView
+            foreach (var reservaPorPeriodo in reservasPorPeriodo)
+            {
+                // Agregar un punto al gráfico para cada periodo
+                chart1.Series["Reservas por Periodo"].Points.AddXY($"{reservaPorPeriodo.Anio}-{reservaPorPeriodo.Mes}", reservaPorPeriodo.CantidadReservas);
+            }
+        }
+
+        private void MostrarGraficoReservasPorPeriodo(List<ReservasPorMesDTO> reservasPorPeriodo)
         {
             // Limpiar el gráfico antes de agregar nuevos datos
             chart1.Series.Clear();
@@ -655,14 +751,12 @@ namespace Presentation.Admin
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (nivelPermiso == 3)
-            {
-                filtro = 3;
-            }
+     
 
             if (filtro == 1)
             {
                 CargarDatosReporteTopTipoHabitacionesMasReservadas();
+                return;
             }
             else if (filtro == 2)
             {
@@ -707,7 +801,7 @@ namespace Presentation.Admin
                     dataGridReportes.Columns["FechaNacimiento"].HeaderCell.Style.Font = new Font("Century Gothic", 8);
 
                     MostrarGraficoTopClientes();
-
+                    return;
                 }
                 catch (Exception ex)
                 {
@@ -716,7 +810,7 @@ namespace Presentation.Admin
             }
             else if (filtro == 3)
             {
-
+                //MessageBox.Show(DatosUsuario.GlobalVariables.Usuarioid.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblTitulo.Text = "Reservas por Período";
                 lblTitulo.Visible = true;
                 if (filtro == 3) 
@@ -742,6 +836,7 @@ namespace Presentation.Admin
                     return;
                 }
             }
+            else
             {
                 MessageBox.Show("Debe seleccionar un tipo de reporte", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
